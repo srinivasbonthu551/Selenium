@@ -1,0 +1,480 @@
+package selenium_sample1;
+
+
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.time.Duration;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.List;
+import java.util.*;
+
+public class Selenium_sample_1 {
+
+    public static void main(String[] args) throws MalformedURLException, InterruptedException {
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Srinu\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        
+         //driver.get("https://demo.opencart.com");
+         //driver.manage().window().maximize() ;
+                                //LOCATORS
+         //name
+        // driver.findElement(By.name("search")).sendKeys("Mac");
+         
+         
+         //id
+         
+        // boolean logoDis = driver.findElement(By.id("logo")).isDisplayed();
+         
+         //System.out.println(logoDis);
+         
+         
+         //linktext
+         
+         //driver.findElement(By.linkText("Tablets")).click();
+         
+         //partial linktext
+         
+         //driver.findElement(By.partialLinkText("Tab")).click();
+         
+         
+         //className
+        
+       //  List<WebElement> headerLinks = driver.findElements(By.className("list-inline-item"));
+         
+         //System.out.println(headerLinks.size());
+         
+         //TagName
+         
+ //List<WebElement> Links = driver.findElements(By.tagName("a"));
+         
+        // System.out.println(Links.size());
+         
+     //Find total images in webpage    
+//List<WebElement> img = driver.findElements(By.tagName("img"));
+         
+        // System.out.println(img.size());
+         
+         
+         
+                              //CSS SELECTORS
+         //tag id
+         
+        // driver.findElement(By.cssSelector("search-box-text")).sendKeys("Tshirts");
+                                  
+         
+         
+         
+                                //XPATH
+         //driver.findElement(By.xpath("//input[@placeholder='search']")).sendKeys("TShirts");
+         // Create a WebDriverWait instance
+        // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+         // Wait for the element to be visible and interact with it
+        // WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='search']")));
+        // searchInput.sendKeys("TShirts");
+         
+         //driver.findElement(By.xpath("//*[text()= 'MacBook']")).click();   
+         
+                                  //WEBDRIVER METHODS
+        //Get Methods 
+        //get(url)
+       /* driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        driver.manage().window().maximize() ;
+        
+        //getTitle()
+        System.out.println(driver.getTitle());
+        
+        //getCurrentUrl()
+        System.out.println(driver.getCurrentUrl());
+         
+        //getPageSource()
+        System.out.println(driver.getPageSource());
+        
+        //gatWindowHandle()
+        String windowid = driver.getWindowHandle();
+        System.out.println(windowid);*/
+        
+        
+                                      //IMPLICIT WAIT
+        
+        
+        
+        
+       /* driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        driver.manage().window().maximize() ;
+        
+        driver.findElement(By.xpath("//input[@placeholder = 'Username']")).sendKeys("Admin");*/
+        
+        
+        
+                                          //Navigation Methods
+        
+        
+       /* URL myUrl = new URL("https://demo.nopcommerce.com/");
+        driver.navigate().to(myUrl);   */
+        
+       /* driver.navigate().to("https://demo.nopcommerce.com/");
+        driver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        
+        driver.navigate().back();
+        System.out.println(driver.getCurrentUrl());
+        
+        driver.navigate().forward();
+        System.out.println(driver.getCurrentUrl());*/
+        
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+       /*  driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        driver.manage().window().maximize() ;
+        driver.findElement(By.xpath("//a[normalize-space()='OrangeHRM, Inc']")).click();
+        Set<String> windowIDs = driver.getWindowHandles(); */
+        
+        //Approach 1 to get ids of both windows
+        
+       /* List<String> windowList = new ArrayList(windowIDs);
+        String parentID = windowList.get(0);
+        String childID = windowList.get(1);
+        System.out.println(parentID); */
+        
+        //switch to child window
+        
+        //driver.switchTo().window(childID);
+       // System.out.println(driver.getTitle());
+        
+        
+        //Approach 2 - Switching multiple windows and if we want to perform action on specific window
+        
+       /* for(String winId:windowIDs) {
+        	String title = driver.switchTo().window(winId).getTitle();
+        	if(title.equals("OrangeHRM")) {
+        		System.out.println(driver.getCurrentUrl());
+        	}
+        			}  */
+        
+        
+                        // Handling Checkboxes , Different Types Of Alerts
+        
+        
+      /*  driver.get("https://testautomationpractice.blogspot.com/");
+        driver.manage().window().maximize() ;*/
+        
+        //Select specific checkbox
+        
+       // driver.findElement(By.xpath("//input[@id='sunday']")).click();     
+        
+        
+        //Select all checkboxes
+    //    List <WebElement> checkboxes  = driver.findElements(By.xpath("//input[@class='form-check-input' and @type = 'checkbox' ]"));
+        
+       /* for (int i =0; i< checkboxes.size();i++) {
+        	checkboxes.get(i).click();
+        	} */
+        
+        
+        //Select Last 3 checkboxes
+        
+
+       /*      for (int i =4; i< checkboxes.size();i++) {
+        	checkboxes.get(i).click();
+        	} */
+        
+        
+//Select First 3 checkboxes
+        
+
+      /* for (int i =0; i<3;i++) {
+        	checkboxes.get(i).click();
+        	} Thread.sleep(5000);
+        
+        
+        
+       //Unselect if they are selected
+       for (int i =0; i<3;i++) {
+       	checkboxes.get(i).click();
+       	} 
+       Thread.sleep(5000);
+         */
+        
+        
+        
+        //alerts
+        
+        
+        //Normal alert with OK button 
+        /*  driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+        driver.manage().window().maximize() ; */
+        
+        /*   driver.findElement(By.xpath("//button[normalize-space()='Click for JS Alert']")).click();
+        
+        Thread.sleep(5000);
+        
+        
+        
+     Alert myalert = driver.switchTo().alert();
+        
+        System.out.println(myalert.getText());
+        myalert.accept(); */
+       //Confirmation Alert
+//driver.findElement(By.xpath("//button[normalize-space()='Click for JS Confirm']")).click();
+        
+        /*Thread.sleep(5000);
+        //driver.switchTo().alert().dismiss();  //close alert using Cancel button
+        
+      //  driver.switchTo().alert().accept();  //close alert using Ok button
+        //Prompt alert- Input Box
+        
+        /*  driver.findElement(By.xpath("//button[normalize-space()='Click for JS Prompt']")).click();
+        
+        Alert myalert = driver.switchTo().alert();
+        myalert.sendKeys("Welcome");
+        myalert.accept();       */
+        
+        
+        
+        
+        ////IFRAMES
+        
+        
+    /*  driver.get("https://ui.vision/demo/webtest/frames/"); 
+        driver.manage().window().maximize() ;
+        Thread.sleep(5000);
+        
+     
+        WebElement frame1 = driver.findElement(By.xpath("//frame[@src='frame_1.html']"));
+        driver.switchTo().frame(frame1);
+        driver.findElement(By.xpath("//input[@name='mytext1']")).sendKeys("welcome");
+        driver.switchTo().defaultContent();
+        
+        WebElement frame2 = driver.findElement(By.xpath("//frame[@src='frame_2.html']"));
+        driver.switchTo().frame(frame2);
+        driver.findElement(By.xpath("//input[@name='mytext2']")).sendKeys("selenium");
+        
+        
+        
+        ///switching to inner frame
+        driver.switchTo().frame(0);
+        
+        Thread.sleep(5000);
+        
+        driver.findElement(By.xpath("//div[@id='i8']//div[@class='AB7Lab Id5V1']")).click();
+        
+        driver.switchTo().defaultContent(); */
+        
+
+        
+       /* try {
+            driver.get("https://ui.vision/demo/webtest/frames/");
+            driver.manage().window().maximize();
+
+            // Wait for the iframe to be available
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//iframe[@src='frame_1.html']")));
+            
+            // Switch to the iframe
+            driver.switchTo().frame(iframe);
+
+            // Wait for the input field to be visible and interact with it
+            WebElement inputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='mytext']")));
+            inputField.sendKeys("welcome");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } */
+                          
+        
+        
+                                   //HANDLING DROPDOWNS
+        
+        
+        //SELECT DROPDOWN
+        
+        
+        
+     // Open the test automation practice site
+       /* driver.get("https://testautomationpractice.blogspot.com/");
+        driver.manage().window().maximize();
+
+        // Locate the dropdown element by its XPath
+        WebElement drpCountryElement = driver.findElement(By.xpath("//select[@id='country']"));
+
+        // Create a Select object to interact with the dropdown
+        Select drpCountrySelect = new Select(drpCountryElement);
+
+        // Select 'France' from the dropdown by visible text
+       // drpCountrySelect.selectByVisibleText("France");
+       // drpCountrySelect.selectByValue("japan");
+        
+       // drpCountrySelect.selectByIndex(2);
+        
+        List <WebElement> options = drpCountrySelect.getOptions();
+        System.out.println("Total Options are: "+ options.size());
+        
+        //printing the options
+        
+        for(int i= 0; i<options.size();i++) {
+        	System.out.println(options.get(i).getText());
+        }*/
+        
+         //////// BOOTSTRAP DROPDOWN
+        
+      /*  driver.get("https://www.jquery-az.com/boots/demo.php?ex=63.0_2");
+        driver.manage().window().maximize();
+        Thread.sleep(5000);
+        
+       driver.findElement(By.xpath("//button[contains(@class,'multiselect')]")).click();
+        //driver.findElement(By.xpath("//input[@value='Java']")).click();
+        
+        //Capture all options and find out size
+        List<WebElement> options = driver.findElements(By.xpath("//ul[contains(@class,'multiselect')]//label"));
+        System.out.println("Size is" + options.size());
+        
+        for(WebElement op:options) {
+        	System.out.println(op.getText());
+        	}
+        Thread.sleep(5000);
+        
+        for(WebElement op:options) {
+        	String option = op.getText();
+        	if(option.equals("Python")||option.equals("MySQL")) {
+        		op.click();
+        	}
+        	}*/
+        
+        
+        
+        
+             ///HANDLING AUTO SUGGEST DROPDOWN
+        
+        
+        /* driver.get("http://www.google.com");
+        driver.manage().window().maximize();
+        driver.findElement(By.name("q")).sendKeys("selenium");
+        Thread.sleep(5000);
+        List<WebElement> list = driver.findElements(By.xpath("//ul[@role='listbox']//li//div[@role='option']"));
+        System.out.println(list.size());
+        for(int i =0;i<list.size();i++) {
+        	System.out.println(list.get(i).getText());
+        	if(list.get(i).getText().equals("Selenium")) {
+        		list.get(i).click();
+        		break;
+        		
+        	}
+        		}*/
+      //  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+     /*   driver.get("https://testautomationpractice.blogspot.com/");
+        driver.manage().window().maximize();
+
+        // Corrected XPath and using findElements to get all row elements
+        int rows = driver.findElements(By.xpath("//table[@name='BookTable']//tr")).size();
+
+      //  System.out.println("Number of rows: " + rows);
+        
+        int cols = driver.findElements(By.xpath("//table[@name='BookTable']//th")).size();*/
+
+      //  System.out.println("Number of cols: " + cols);
+        
+      //  String Bookname = driver.findElement(By.xpath("//table[@name='BookTable']//tr[5]//td[1]")).getText();
+     //   System.out.println(Bookname); */
+        
+        
+        
+        
+        //Read data from all rows and columns
+        
+        
+        
+       /* for(int r =2;r<=rows; r++) {
+        	for(int c =1;c<=cols;c++) {
+        		String value = driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+"]//td["+c+"]")).getText();
+        		System.out.print(value + "\t");
+        	}
+        	System.out.println();
+        }*/
+        
+        
+
+        
+        //Book names whose author is Mukesh
+        /*for(int r=2;r<=rows ;r++) {
+        	String author = driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+"]//td[2]")).getText();
+        	if(author.equals("Mukesh")) {
+        		String book = driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+"]//td[1]")).getText();
+        		System.out.println(author + "\t" + book);
+        	}
+        } */
+        
+        
+        //Find total price of all books
+        /*int total =0;
+        
+        
+        for(int r=2;r<=rows ;r++) {
+        	String price  = driver.findElement(By.xpath("//table[@name='BookTable']//tr["+r+"]//td[4]")).getText();
+        	total = total + Integer.parseInt(price);       	
+        	
+        }
+        System.out.println(total);*/
+        
+        
+        
+        
+        ///////HANDLING DATA PICKERS
+        
+        
+        
+        driver.get("https://jqueryui.com/datepicker/");
+        driver.manage().window().maximize();
+        Thread.sleep(5000);
+        
+        
+        //Method1 -Using sendkeys()
+        driver.switchTo().frame(0);
+     // driver.findElement(By.xpath("//input[@id='datepicker']")).sendKeys("04/05/2024");
+    
+
+        //Method 2: Using Date Pickers
+        
+        
+        String year = "2024";
+        String month = "August";
+        String date = "20";
+        driver.findElement(By.xpath("//input[@id='datepicker']")).click();
+        while(true) {
+        	String currentMonth = driver.findElement(By.xpath("//span[@class='ui-datepicker-month']")).getText();
+        	String currentYear = driver.findElement(By.xpath("//span[@class='ui-datepicker-year']")).getText();
+        	if(currentMonth.equals(month)&& currentYear.equals(year)) {
+        		break;
+        	}
+        	driver.findElement(By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-w']")).click();
+        }
+        
+        //select the date
+        
+        List<WebElement> allDates = driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']//tbody//tr//td//a"));  
+        for(WebElement dt:allDates) {
+        	if(dt.getText().equals(date)) {
+        		dt.click();
+        		break;
+        	}
+        }
+        
+                           
+        
+        
+        
+        
+        
+        // Close the browser
+         //driver.quit();
+    }
+}
