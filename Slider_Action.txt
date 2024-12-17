@@ -1,0 +1,38 @@
+package slicers;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Slicers {
+
+    public static void main(String[] args) {
+        // Set up WebDriver (Assuming ChromeDriver is in PATH)
+        WebDriver driver = new ChromeDriver();
+        
+        // Navigate to the webpage
+        driver.get("https://jqueryui.com/slider/");
+        driver.manage().window().maximize();
+        
+        // Switch to the iframe containing the slider
+        WebElement iframe = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
+        driver.switchTo().frame(iframe);
+        
+        // Locate the slider handle using a more flexible XPath
+        WebElement sliderHandle = driver.findElement(By.xpath("//span[contains(@class, 'ui-slider-handle')]"));
+
+        // Print the current location of the slider handle
+        System.out.println("Slider handle location (before): " + sliderHandle.getLocation());
+        
+        // Use Actions to drag the slider
+        Actions act = new Actions(driver);
+        act.dragAndDropBy(sliderHandle, 100, 0).perform(); // Move 100 pixels to the right (X axis)
+        
+        // Print the new location of the slider handle
+        System.out.println("Slider handle location (after): " + sliderHandle.getLocation());
+
+        
+    }
+}
