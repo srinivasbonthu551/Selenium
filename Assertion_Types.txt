@@ -1,0 +1,59 @@
+package test_NG;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class Assertion_Types {
+  @Test
+  public void Hard_Assertion() {
+	  
+	  //Assert.assertEquals("xyz", "xyz");
+	  
+	  
+	  //Assert.assertEquals(123, 345);
+	  //Assert.assertEquals("xyz", 345);
+	  
+	  //Assert.assertNotEquals("xyz", 345);
+	 // Assert.assertTrue(true);
+	//  Assert.assertTrue(false);
+	 // Assert.assertFalse(false);
+	  
+	  //Assert.assertFalse(true);
+	  
+	  //Assert.assertTrue(1==1);
+	 /* System.out.println("testing....");
+	  
+	  System.out.println("testing....");
+	  Assert.assertEquals(1, 2);
+	  System.out.println("testing....");
+	  System.out.println("testing....");*/
+  }
+  @Test
+  public void Soft_Assertion() {
+	  
+	  //Assert.assertEquals("xyz", "xyz");
+	  
+	  
+	  //Assert.assertEquals(123, 345);
+	  //Assert.assertEquals("xyz", 345);
+	  
+	  //Assert.assertNotEquals("xyz", 345);
+	 // Assert.assertTrue(true);
+	//  Assert.assertTrue(false);
+	 // Assert.assertFalse(false);
+	  
+	  //Assert.assertFalse(true);
+	  
+	  //Assert.assertTrue(1==1);
+	  System.out.println("testing....");
+	  
+	  System.out.println("testing....");
+	  SoftAssert sa = new SoftAssert();
+	  sa.assertEquals(1, 2);
+	  System.out.println("testing....");
+	  System.out.println("testing....");
+	  sa.assertAll();
+  }
+  
+}
